@@ -1,6 +1,8 @@
+// get median by id
 exports.getMedian = async (req, res) => {
   try {
     const n = parseInt(req.params.n);
+    // check for negative number
     if (n <= 2) {
       return res.status(200).json({
         status: false,
@@ -8,6 +10,7 @@ exports.getMedian = async (req, res) => {
       });
     }
 
+    // push all numbers till n
     const numArray = [...Array(n).keys()];
     for (let i = 2; i * i < n; i++) {
       if (numArray[i] !== "1") {
@@ -18,13 +21,14 @@ exports.getMedian = async (req, res) => {
     }
 
     const primeArray = [];
-
+    // get all prime nos wrt numArray
     for (let i = 0; i < numArray.length; i++) {
       if (numArray[i] > 1) {
         primeArray.push(numArray[i]);
       }
     }
 
+    // for even, return 2 medians
     if (primeArray.length % 2 == 0) {
       return res.status(200).json({
         status: true,
@@ -36,6 +40,7 @@ exports.getMedian = async (req, res) => {
       });
     }
 
+    // for odd, return 1 median
     return res.status(200).json({
       status: true,
       prime: primeArray,

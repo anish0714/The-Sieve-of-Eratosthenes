@@ -11,6 +11,8 @@ export const getMedian = (val) => async (dispatch) => {
     // console.log(res.data);
     if (res.data) {
       const { status } = res.data;
+
+      // if status is true then dispatch get result action else display error
       if (status) {
         dispatch({
           type: GET_RESULT,

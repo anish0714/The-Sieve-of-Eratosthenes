@@ -9,9 +9,6 @@ const MyApp = ({ getMedian, appReducer: { result, error } }) => {
   const [inputVal, setInputVal] = useState(null);
   const [isButtonDisable, setIsButtonDisable] = useState(true);
 
-  //   const [result, setResult] = useState(null);
-  //   const [error, setError] = useState(null);
-
   const handleInputVal = (e) => {
     setInputVal(e.target.value);
     e.target.value ? setIsButtonDisable(false) : setIsButtonDisable(true);
@@ -31,6 +28,7 @@ const MyApp = ({ getMedian, appReducer: { result, error } }) => {
       <button disabled={isButtonDisable} onClick={() => getMedian(inputVal)}>
         Get Median
       </button>
+      {/* conditional rendering for error and result, if value exist then display else dont */}
       {result && (
         <div className="result_error">
           <h4>Result:</h4> <p>{result}</p>
