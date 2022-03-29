@@ -1,12 +1,12 @@
 To install packages use,
 
-# `npm install`
-# `npm run clientinstall`
+##### `npm install`
+##### `npm run clientinstall`
 
 
 In the project directory, you can start server and client simultaneously.
 
-# `npm run dev`
+##### `npm run dev`
 
 
 
